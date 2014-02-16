@@ -63,7 +63,7 @@ feature 'Maker signs out' do
   scenario 'while signed in, user signs out' do
     sign_in('the_one', 'shazzam')
     click_button 'Sign out'
-    expect(page).to have_content('Adios')
+    expect(page).to have_content('Adios!')
     expect(page).not_to have_content('Welcome to Chitter the_one!')
   end
 end

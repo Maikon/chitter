@@ -14,3 +14,4 @@ require_relative 'helpers/cmaker'
 enable :sessions
 set :session_secret, 'i_like_cats_@lot'
 use Rack::Flash
+set :partial_template_engine, :erb

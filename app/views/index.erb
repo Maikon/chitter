@@ -4,6 +4,8 @@
     <input type="hidden" name="_method" value="delete">
     <input type="submit" value="Sign out">
   </form>
+  <%= partial :list_of_peeps %>
 <% else %>
   <h1>Pa-ching! Welcome to Chitter! Please sign up to see more.</h1>
+  <%= partial :list_of_peeps %>
 <% end %>
