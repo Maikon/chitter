@@ -10,15 +10,23 @@ feature 'Maker signs up' do
     expect(Maker.first.username).to eq('the_one')
   end
 
+  scenario 'with password that doesn\'t match' do
+    lambda { sign_up('master', 'the_one', 'master@example.com', 'shazzam', 'kapoom') }.should change(Maker, :count).by(0)
+    expect(current_path).to eq('/makers/new')
+    expect(page).to have_content('Passwords do not match.')
+  end
+
   def sign_up(name = 'master',
               username = 'the_one',
               email = 'master@example.com',
-              password = 'shazzam')
+              password = 'shazzam',
+              password_confirmation = 'shazzam')
     visit '/makers/new'
     fill_in :name, :with => name
     fill_in :username, :with => username
     fill_in :email, :with => email
     fill_in :password, :with => password
+    fill_in :password_confirmation, :with => password_confirmation
     click_button 'Sign up'
   end
 end

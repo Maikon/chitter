@@ -1,5 +1,10 @@
 <h1>Sign up</h1>
 
+<% if flash[:error] %>
+  <div id="error">
+    <%= flash[:error] %>
+  </div>
+<% end %>
 <form action="/makers" method="post">
   Name: <input name="name" type="text">
   Username: <input name="username" type="text" value="<%= @maker.username %>">
