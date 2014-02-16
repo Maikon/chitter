@@ -11,6 +11,12 @@
     </div>
   <% end %>
   <%= yield %>
+  <div id="new_peep">
+    <form action="/peeps" method="post">
+      Peep: <input type="text" name="body">
+      <input type="submit" value="Peep it!">
+    </form>
+  </div>
 </body>
 </html>
 
