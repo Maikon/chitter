@@ -4,7 +4,10 @@ class Maker
 
   attr_reader :password
   attr_accessor :password_confirmation
+
   include DataMapper::Resource
+
+  has n, :peeps, :through => Resource
 
   property :id, Serial
   property :name, String
