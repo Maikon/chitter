@@ -44,6 +44,13 @@ feature 'Maker signs in' do
     sign_in('the_one', 'shazzam')
     expect(page).to have_content('Pa-ching! Welcome to Chitter the_one!')
   end
+
+  scenario 'with incorrect details' do
+    visit '/'
+    expect(page).not_to have_content('Pa-ching! Welcome to Chitter the_one!')
+    sign_in('the_one', 'ooopsss')
+    expect(page).not_to have_content('Pa-ching! Welcome to Chitter the_one!')
+  end
 end
 
 def sign_up(name = 'master',
