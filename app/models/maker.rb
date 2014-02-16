@@ -18,4 +18,13 @@ class Maker
   end
 
   validates_confirmation_of :password
+
+  def self.authenticate(username, password)
+    maker = first(:username => username)
+    if maker && BCrypt::Password.new(maker.password_digest) == password
+      maker
+    else
+      nil
+    end
+  end
 end
