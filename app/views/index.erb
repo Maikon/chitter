@@ -5,6 +5,12 @@
     <input type="submit" value="Sign out">
   </form>
   <%= partial :list_of_peeps %>
+  <div id="new_peep">
+    <form action="/peeps" method="post">
+      Peep: <input type="text" name="body">
+      <input type="submit" value="Peep it!">
+    </form>
+  </div>
 <% else %>
   <h1>Pa-ching! Welcome to Chitter! Please sign up to see more.</h1>
   <%= partial :list_of_peeps %>
