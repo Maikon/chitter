@@ -8,7 +8,7 @@ class Maker
 
   property :id, Serial
   property :name, String
-  property :username, String
+  property :username, String, :unique => true, :message => 'This username has already been used'
   property :email, String, :unique => true, :message => 'This email has already been used'
   property :password_digest, Text
 

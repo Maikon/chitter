@@ -22,6 +22,12 @@ feature 'Maker signs up' do
     expect(page).to have_content('This email has already been used')
   end
 
+  scenario 'with username that is already registered' do
+    lambda { sign_up }.should change(Maker, :count).by(1)
+    lambda { sign_up }.should change(Maker, :count).by(0)
+    expect(page).to have_content('This username has already been used')
+  end
+
   def sign_up(name = 'master',
               username = 'the_one',
               email = 'master@example.com',
