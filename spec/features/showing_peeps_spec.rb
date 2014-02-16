@@ -4,7 +4,8 @@ feature 'Maker sees the list of peeps' do
 
   before(:each) do
     Peep.create(:body => 'hello world',
-                :created_at => Time.now)
+                :created_at => Time.now,
+                :maker_id => 1)
   end
 
   scenario 'when opening the home page' do

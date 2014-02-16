@@ -5,6 +5,8 @@ end
 
 post '/peeps' do
   body = params[:body]
-  Peep.create(:body => body)
+  created_at = params[:created_at]
+  maker = current_maker
+  Peep.create(:body => body, :created_at => created_at, :maker_id => maker.id)
   redirect to('/')
 end
