@@ -14,3 +14,9 @@ post '/sessions' do
     erb :'sessions/new'
   end
 end
+
+delete '/sessions' do
+  flash[:notice] = 'Adios!'
+  session[:maker_id] = nil
+  redirect to('/')
+end

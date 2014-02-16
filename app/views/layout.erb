@@ -5,6 +5,11 @@
   <title>Chitter</title>
 </head>
 <body>
+  <% if flash[:notice] %>
+    <div id="notice">
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
   <%= yield %>
 </body>
 </html>

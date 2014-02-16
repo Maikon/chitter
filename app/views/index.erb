@@ -1,5 +1,9 @@
-<% if !current_maker.nil? %>
+<% if current_maker %>
   <h1>Pa-ching! Welcome to Chitter <%= current_maker.username %>!</h1>
+  <form action="/sessions" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Sign out">
+  </form>
 <% else %>
-<h1>Pa-ching! Welcome to Chitter! Please sign up to see more.</h1>
+  <h1>Pa-ching! Welcome to Chitter! Please sign up to see more.</h1>
 <% end %>

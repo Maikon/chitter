@@ -53,6 +53,21 @@ feature 'Maker signs in' do
   end
 end
 
+feature 'Maker signs out' do
+   before(:each) do
+    Maker.create(:username => 'the_one',
+                 :password => 'shazzam',
+                 :password_confirmation => 'shazzam')
+  end
+
+  scenario 'while signed in, user signs out' do
+    sign_in('the_one', 'shazzam')
+    click_button 'Sign out'
+    expect(page).to have_content('Adios')
+    expect(page).not_to have_content('Welcome to Chitter the_one!')
+  end
+end
+
 def sign_up(name = 'master',
             username = 'the_one',
             email = 'master@example.com',
