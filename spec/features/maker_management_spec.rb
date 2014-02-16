@@ -12,8 +12,14 @@ feature 'Maker signs up' do
 
   scenario 'with password that doesn\'t match' do
     lambda { sign_up('master', 'the_one', 'master@example.com', 'shazzam', 'kapoom') }.should change(Maker, :count).by(0)
-    expect(current_path).to eq('/makers/new')
-    expect(page).to have_content('Passwords do not match.')
+    expect(current_path).to eq('/makers')
+    expect(page).to have_content('Password does not match the confirmation')
+  end
+
+  scenario 'with email that is already registered' do
+    lambda { sign_up }.should change(Maker, :count).by(1)
+    lambda { sign_up }.should change(Maker, :count).by(0)
+    expect(page).to have_content('This email has already been used')
   end
 
   def sign_up(name = 'master',

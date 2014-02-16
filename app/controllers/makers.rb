@@ -13,7 +13,7 @@ post '/makers' do
     session[:maker_id] = @maker.id
     redirect to('/')
   else
-    flash[:error] = 'Passwords do not match.'
-    redirect to('/makers/new')
+    flash.now[:errors] = @maker.errors.full_messages
+    erb :'makers/new'
   end
 end

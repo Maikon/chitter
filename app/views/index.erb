@@ -1,2 +1,5 @@
-<h1>Pa-ching! Welcome to Chitter <%= current_maker.username %>!</h1>
-
+<% if !current_maker.nil? %>
+  <h1>Pa-ching! Welcome to Chitter <%= current_maker.username %>!</h1>
+<% else %>
+<h1>Pa-ching! Welcome to Chitter! Please sign up to see more.</h1>
+<% end %>
