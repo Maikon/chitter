@@ -3,7 +3,11 @@
     <section>
       Created: <%= peep.created_at %>
       <li><%= peep.body %></li>
-      <li><%= peep.maker %></li>
+      <% if peep.maker.nil? %>
+        <li><%= peep.maker_id %></li>
+      <% else %>
+        <li><%= peep.maker.username %></li>
+      <% end %>
     </section>
   <% end %>
 </ul>
