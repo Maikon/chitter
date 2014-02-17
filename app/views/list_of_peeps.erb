@@ -1,7 +1,7 @@
 <ul>
   <% @peeps.each do |peep| %>
     <section>
-      Created: <%= peep.created_at %>
+      Created: <%= peep.time_format %>
       <li><%= peep.body %></li>
       <% if peep.maker.nil? %>
         <li><%= peep.maker_id %></li>
