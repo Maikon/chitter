@@ -1,9 +1,12 @@
 <% if current_maker %>
+<header>
   <h1>Pa-ching! Welcome to Chitter <%= current_maker.username %>!</h1>
   <form action="/sessions" method="post">
     <input type="hidden" name="_method" value="delete">
     <input type="submit" value="Sign out">
   </form>
+</header>
+<main>
   <%= partial :list_of_peeps %>
   <div id="new_peep">
     <form action="/peeps" method="post">
@@ -12,8 +15,13 @@
     </form>
   </div>
 <% else %>
+</main>
+<header>
   <h1>Pa-ching! Welcome to Chitter!</h1>
   <a href="/makers/new">Sign up</a>
   <a href="/sessions/new">Sign in</a>
+</header>
+<main>
   <%= partial :list_of_peeps %>
+</main>
 <% end %>

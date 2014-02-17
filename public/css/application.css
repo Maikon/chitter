@@ -1,0 +1,18 @@
+body {
+  background: #e8edee;
+}
+
+header {
+  background: #f18b23;
+  height: 50px;
+  position: fixed;
+  width: 100%;
+  top: 0px;
+}
+
+main {
+  background: #2483d5;
+  /*height: 2000px; this is so that there's extra space to scroll. */
+  margin: 50px auto;
+  width: 100%;
+}
