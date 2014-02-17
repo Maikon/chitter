@@ -1,13 +1,5 @@
 <h1>Sign up</h1>
-
-<% if flash[:errors] && !flash[:errors].empty? %>
-  Something went wrong:
-  <ul id="errors">
-    <% flash[:errors].each do |error| %>
-       <li><%= error %></li>
-     <% end %>
-  </ul>
-<% end %>
+<%= partial :error_messages %>
 <form action="/makers" method="post">
   Name: <input name="name" type="text">
   Username: <input name="username" type="text" value="<%= @maker.username %>">

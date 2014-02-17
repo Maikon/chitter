@@ -1,7 +1,8 @@
 <h1>Sign in</h1>
-
+<%= partial :error_messages %>
 <form action="/sessions" method="post">
   Username: <input type="text" name="username">
   Password: <input type="password" name="password">
   <input type="submit" value="Sign in">
 </form>
+<a href="/makers/new">Sign up</a>
