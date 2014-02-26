@@ -4,11 +4,11 @@ get '/makers/new' do
 end
 
 post '/makers' do
-  @maker = Maker.create(:name => params[:name],
-                        :username => params[:username],
-                        :email => params[:email],
-                        :password => params[:password],
-                        :password_confirmation => params[:password_confirmation])
+  @maker = Maker.create(name: params[:name],
+                        username: params[:username],
+                        email: params[:email],
+                        password: params[:password],
+                        password_confirmation: params[:password_confirmation])
   if @maker.save
     session[:maker_id] = @maker.id
     redirect to('/')
